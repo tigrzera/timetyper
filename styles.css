@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #0f0f0f;
+    color: #646669;
+    font-family: 'Lexend Deca', sans-serif;
+    flex-direction: column;
+}
+
+.container {
+    position: relative;
+    width: 900px;
+    max-width: 90%;
+}
+
+.timer {
+    font-size: 5rem;
+    color: #ffffff;
+    font-weight: 650;
+    margin-bottom: -1.5rem;
+    margin-top: 0rem;
+    margin-right: 0rem;
+}
+
+.last-results {
+    text-align: right;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #646669;
+}
+
+.quote-display {
+    margin-bottom: 1rem;
+    padding: .67rem;
+    background-color: #181818;
+    border-radius: .75rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: left;
+}
+
+.quote-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 10rem;
+    resize: none;
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    opacity: 0;
+    cursor: default;
+}
+
+.last-results {
+    font-size: 1.5rem;
+}
+span {
+    color: #646669;
+}
+
+.correct {
+    color: #d1d0c5;
+}
+
+.incorrect {
+    color: #ca4754;
+    text-decoration: underline;
+}
+
+.quote-display span.active {
+    position: relative;
+}
+
+.quote-display span.active::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    bottom: 0;
+    width: 2px;
+    height: 1.2em;
+    background-color: #ffffff;
+    animation: blink 0.7s infinite;
+    opacity: 1;
+    z-index: 10;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background-color: #131313;
+    border: 1px solid #646669;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.modal h2 {
+    color: #e2b714;
+    margin-top: 0;
+}
+
+.modal p {
+    color: #d1d0c5;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+.modal button {
+    background-color: #646669;
+    color: #ffffff;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Lexend Deca', sans-serif;
+    transition: background 0.2s;
+}
+
+.modal button:hover {
+    background-color: #e2b714;
+    color: #131313;
+}
