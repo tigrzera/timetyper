@@ -109,3 +109,8 @@ startGameBtn.addEventListener('click', () => {
 document.addEventListener('click', () => {
     quoteInputElement.focus();
 })
+
+startGameBtn.addEventListener('click', () => {
+  instructionsModal.style.display = 'none';
+  setTimeout(() => quoteInputElement.focus(), 0);
+});
