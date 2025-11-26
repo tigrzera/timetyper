@@ -105,3 +105,7 @@ startGameBtn.addEventListener('click', () => {
   instructionsModal.style.display = 'none'
   quoteInputElement.focus() // Automatically selects the text box
 })
+
+document.addEventListener('click', () => {
+    quoteInputElement.focus();
+})
