@@ -1,11 +1,19 @@
-const quote_api = 'https://api.quotable.io/random'
+const RANDOM_QUOTE_API_URL = 'https://api.adviceslip.com/advice'
 const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
 const lastResultsElement = document.getElementById('lastResults')
 
+const instructionsModal = document.getElementById('instructionsModal')
+const startGameBtn = document.getElementById('startGameBtn')
+
 let timerInterval
 let timerStarted = false
+
+startGameBtn.addEventListener('click', () => {
+  instructionsModal.style.display = 'none'
+  quoteInputElement.focus()
+})
 
 quoteInputElement.addEventListener('keydown', (e) => {
   if (e.key === 'Tab') {
@@ -53,9 +61,9 @@ quoteInputElement.addEventListener('input', () => {
 })
 
 function getRandomQuote() {
-  return fetch(quote_api)
+  return fetch(RANDOM_QUOTE_API_URL + '?t=' + Math.random())
     .then(response => response.json())
-    .then(data => data.content)
+    .then(data => data.slip.advice)
 }
 
 async function renderNewQuote() {
@@ -97,20 +105,3 @@ function getTimerTime() {
 }
 
 renderNewQuote()
-
-const instructionsModal = document.getElementById('instructionsModal')
-const startGameBtn = document.getElementById('startGameBtn')
-
-startGameBtn.addEventListener('click', () => {
-  instructionsModal.style.display = 'none'
-  quoteInputElement.focus() // Automatically selects the text box
-})
-
-document.addEventListener('click', () => {
-    quoteInputElement.focus();
-})
-
-startGameBtn.addEventListener('click', () => {
-  instructionsModal.style.display = 'none';
-  setTimeout(() => quoteInputElement.focus(), 0);
-});
